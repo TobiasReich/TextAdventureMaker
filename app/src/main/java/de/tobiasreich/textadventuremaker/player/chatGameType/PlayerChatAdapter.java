@@ -7,7 +7,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import java.util.List;
+
 import de.tobiasreich.textadventuremaker.R;
+import de.tobiasreich.textadventuremaker.storyObjects.StoryMessage;
 
 /**
  * Created by T on 15.04.2017. */
@@ -16,9 +19,11 @@ public class PlayerChatAdapter extends RecyclerView.Adapter<PlayerChatAdapter.Vi
     final static String TAG = PlayerChatAdapter.class.getSimpleName();
 
     private Context context;
+    private List<StoryMessage> historyMessages;
 
-    public PlayerChatAdapter(Context context) {
+    public PlayerChatAdapter(Context context, List<StoryMessage> historyMessages) {
         this.context = context;
+        this.historyMessages = historyMessages;
     }
 
     @Override
@@ -37,7 +42,7 @@ public class PlayerChatAdapter extends RecyclerView.Adapter<PlayerChatAdapter.Vi
 
     @Override
     public int getItemCount() {
-        return 300;
+        return historyMessages.size();
     }
 
     /** Fills the view elements with the message defined by the psition

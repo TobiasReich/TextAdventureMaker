@@ -20,4 +20,10 @@ public class StoryPart {
     List<Decision> decisions = new ArrayList<>();
     boolean saveGame = false;
 
+    public StoryPart(String name) {
+        this.partName = name;
+        texts.add(new StoryMessage());
+        texts.add(new StoryMessage());
+        texts.add(new StoryMessage());
+    }
 }

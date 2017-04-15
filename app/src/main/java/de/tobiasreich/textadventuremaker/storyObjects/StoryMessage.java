@@ -11,12 +11,18 @@ package de.tobiasreich.textadventuremaker.storyObjects;
  *
  * It also contains an imagePath in case the story want's to show an image
  *
+ * The boolean fromUser determines whether the message is from the user.
+ * This is especially important for "Chats" where the outgoing messages are shown on another
+ * side than the incoming ones.
+ * This is
+ *
  * Created by T on 12.04.2017. */
 public class StoryMessage {
 
-    String Text;
-    int waitTime = 1;
-    int statusNumber = 0;
-    String imagePath;
+    public String text = "story message text";
+    public int waitTime = 1;
+    public int statusNumber = 0;
+    public String imagePath;
+    public boolean fromUser;   // Determines whether this message is from the user or from the "chat partner"
 
 }

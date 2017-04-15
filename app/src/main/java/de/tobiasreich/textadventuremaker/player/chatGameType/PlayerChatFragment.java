@@ -10,8 +10,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import de.tobiasreich.textadventuremaker.R;
 import de.tobiasreich.textadventuremaker.storyObjects.Story;
+import de.tobiasreich.textadventuremaker.storyObjects.StoryMessage;
 
 /**
  */
@@ -22,7 +26,10 @@ public class PlayerChatFragment extends Fragment {
     private RecyclerView messagesRV;
     private LinearLayout sendMessagesLL;
 
+    private List<StoryMessage> historyMessages = new ArrayList<>();
+
     public PlayerChatFragment() {
+
     }
 
     @Override
@@ -41,7 +48,7 @@ public class PlayerChatFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_player_chat, container, false);
         messagesRV = (RecyclerView) rootView.findViewById(R.id.messagesRV);
 
-        PlayerChatAdapter chatMassageListAdapter = new PlayerChatAdapter(getActivity());
+        PlayerChatAdapter chatMassageListAdapter = new PlayerChatAdapter(getActivity(), historyMessages);
         messagesRV.setHasFixedSize(true);
         messagesRV.setLayoutManager(new LinearLayoutManager(getActivity()));
         messagesRV.setAdapter(chatMassageListAdapter);
