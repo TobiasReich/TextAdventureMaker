@@ -13,6 +13,7 @@ import android.widget.Button;
 
 import de.tobiasreich.textadventuremaker.ApplicationInteractionListener;
 import de.tobiasreich.textadventuremaker.R;
+import de.tobiasreich.textadventuremaker.data.DataManager;
 
 /**
  */
@@ -30,6 +31,8 @@ public class PlayerInitFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle("Story Editor");
+
+        DataManager.getInstance().getPossibleGames();
     }
 
     @Override

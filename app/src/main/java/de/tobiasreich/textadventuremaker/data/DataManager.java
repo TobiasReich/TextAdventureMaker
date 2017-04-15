@@ -15,6 +15,8 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 
@@ -28,6 +30,7 @@ public class DataManager {
     private static final String TAG = DataManager.class.getSimpleName();
     private static final String APP_FOLDER_PATH = "AdventureMaker";
     private static final String ADVENTURES_PATH = "Adventures";
+    private static final String ADVENTURES_SUFFIX = ".adv";
 
     private static final int BUFFER_SIZE = 512;
 
@@ -98,7 +101,7 @@ public class DataManager {
 
         File file1 = new File(path, "game.txt");
         File file2 = new File(path, "game2.txt");
-        File zipFile = new File(path, "zipped.zip");
+        File gameArchive = new File(path, "adventure" + ADVENTURES_SUFFIX);
 
         try (FileOutputStream stream = new FileOutputStream(file1)){
             stream.write(storyAsJSON.getBytes());
@@ -122,7 +125,7 @@ public class DataManager {
         files[0] = file1.getAbsolutePath();
         files[1] = file2.getAbsolutePath();
         try {
-            zip(files, zipFile.getAbsolutePath());
+            zip(files, gameArchive.getAbsolutePath());
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -183,7 +186,23 @@ public class DataManager {
         }
     }
 
+    public List<String> getPossibleGames(){
+        List<String> adventures = new ArrayList<>();
 
+        String path = Environment.getExternalStoragePublicDirectory(APP_FOLDER_PATH).toString() + "/" + ADVENTURES_PATH;
+        Log.d(TAG, "Searching Path: " + path);
+        File directory = new File(path);
+        File[] files = directory.listFiles();
+        Log.d(TAG, "Possible stories Size: "+ files.length);
+        for (int i = 0; i < files.length; i++) {
+            String fileName = files[i].getName();
+            Log.d(TAG, "checking file:" + fileName);
+            if (fileName.endsWith(DataManager.ADVENTURES_SUFFIX))
+                adventures.add(fileName);
+        }
+        Log.d(TAG, "Adventures: " + adventures.size());
+        return adventures;
+    }
 
 
 }

@@ -27,7 +27,7 @@ public class PlayerChatFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle("Story Editor");
+        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle("Player <Storyname>");
     }
 
     @Override
