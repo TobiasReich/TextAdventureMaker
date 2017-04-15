@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="Editor">
+        <menu>
+            <item
+                android:id="@+id/storyEditor"
+                android:icon="@drawable/ic_menu_manage"
+                android:title="Editor" />
+            <item
+                android:id="@+id/importStory"
+                android:icon="@android:drawable/ic_menu_agenda"
+                android:title="Import Story" />
+            <item
+                android:id="@+id/exportStory"
+                android:icon="@android:drawable/ic_menu_save"
+                android:title="Export Story" />
+        </menu>
+    </item>
+
+    <item android:title="Player">
+        <menu>
+            <item
+                android:id="@+id/storyPlayer"
+                android:icon="@android:drawable/ic_media_play"
+                android:title="Story Player" />
+            <item
+                android:id="@+id/nav_send"
+                android:icon="@drawable/ic_menu_send"
+                android:title="XYZ" />
+        </menu>
+    </item>
+
+</menu>
