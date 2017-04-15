@@ -1,4 +1,4 @@
-package de.tobiasreich.textadventuremaker.player;
+package de.tobiasreich.textadventuremaker.player.chatGameType;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
 import de.tobiasreich.textadventuremaker.R;
+import de.tobiasreich.textadventuremaker.storyObjects.Story;
 
 /**
  */
@@ -27,7 +28,11 @@ public class PlayerChatFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle("Player <Storyname>");
+
+        Story story = new Story();
+        story.setStoryName("Test-Story");
+
+        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle(story.getStoryName());
     }
 
     @Override
@@ -36,12 +41,9 @@ public class PlayerChatFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_player_chat, container, false);
         messagesRV = (RecyclerView) rootView.findViewById(R.id.messagesRV);
 
-        LinearLayoutManager mLinearLayoutManager = new LinearLayoutManager(getActivity());
-        mLinearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
-
         PlayerChatAdapter chatMassageListAdapter = new PlayerChatAdapter(getActivity());
         messagesRV.setHasFixedSize(true);
-        messagesRV.setLayoutManager(mLinearLayoutManager);
+        messagesRV.setLayoutManager(new LinearLayoutManager(getActivity()));
         messagesRV.setAdapter(chatMassageListAdapter);
 
         sendMessagesLL = (LinearLayout) rootView.findViewById(R.id.sendMessagesLL);

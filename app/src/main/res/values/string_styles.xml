@@ -1,0 +1,23 @@
+<resources>
+
+    <!-- ### Fonts ### -->
+
+    <!-- Normal text, chat messages, view elements ... -->
+    <style name="AMTextRegular" parent="@android:style/TextAppearance">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:typeface">sans</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+
+    <!-- Regular Text but on none-white background -->
+    <style name="AMHeaderText" parent="@style/AMTextRegular">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="AMListItemText" parent="@style/AMTextRegular">
+        <item name="android:textSize">18sp</item>
+    </style>
+
+</resources>

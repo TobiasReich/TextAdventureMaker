@@ -17,7 +17,7 @@ import android.support.v4.app.FragmentManager;
 
 import de.tobiasreich.textadventuremaker.data.DataManager;
 import de.tobiasreich.textadventuremaker.editor.editor.EditorFragment;
-import de.tobiasreich.textadventuremaker.player.PlayerChatFragment;
+import de.tobiasreich.textadventuremaker.player.chatGameType.PlayerChatFragment;
 import de.tobiasreich.textadventuremaker.player.PlayerInitFragment;
 
 public class MainActivity extends AppCompatActivity

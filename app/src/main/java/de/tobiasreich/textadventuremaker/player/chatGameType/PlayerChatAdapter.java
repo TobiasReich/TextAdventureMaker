@@ -1,4 +1,4 @@
-package de.tobiasreich.textadventuremaker.player;
+package de.tobiasreich.textadventuremaker.player.chatGameType;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
