@@ -7,12 +7,22 @@ import java.util.List;
 /**
  * Created by T on 12.04.2017. */
 public class Story {
+    /* TODO: Brainstorming:
+     * If the game is a chat game. Add option for multiple chats (not only with that person).
+     **/
+
+    /* The modern type. Chatting with someone who can only reach you and needs your decisions */
+    public static final int STORY_TYPE_CHAT = 0;
+
+    /* The classic type. A book of decisions and you flip the pages according to your decisions */
+    public static final int STORY_TYPE_STORY_TELLER = 1;
 
     private String storyName;
 
-    // TODO: Separate this
+    private int storyType = STORY_TYPE_CHAT ;
 
     /* User elements
+    *  TODO: Separate story from user values (so save games can be created)
     * (Depending on the users decisions, needed for save games) */
     private GameSettings gameSettings;
 

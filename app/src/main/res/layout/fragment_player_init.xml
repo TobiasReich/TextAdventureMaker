@@ -6,13 +6,16 @@
     android:orientation="vertical"
     tools:activity="de.tobiasreich.textadventuremaker.editor.editor.EditorFragment">
 
-    <TextView
+    <EditText
+        android:id="@+id/editText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/hello_blank_fragment" />
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Name" />
 
     <Button
-        android:id="@+id/createButton"
+        android:id="@+id/startGameButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Start Story" />

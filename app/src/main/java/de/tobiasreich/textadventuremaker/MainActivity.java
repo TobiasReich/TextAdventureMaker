@@ -2,7 +2,6 @@ package de.tobiasreich.textadventuremaker;
 
 import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.os.Environment;
 import android.os.Handler;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
@@ -16,14 +15,14 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.support.v4.app.FragmentManager;
 
-import java.io.File;
-
 import de.tobiasreich.textadventuremaker.data.DataManager;
 import de.tobiasreich.textadventuremaker.editor.editor.EditorFragment;
-import de.tobiasreich.textadventuremaker.player.PlayerFragment;
+import de.tobiasreich.textadventuremaker.player.PlayerChatFragment;
+import de.tobiasreich.textadventuremaker.player.PlayerInitFragment;
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener,
+        ApplicationInteractionListener{
 
     private final String TAG = getClass().getSimpleName();
 
@@ -80,7 +79,6 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle navigation view item clicks here.
         int id = item.getItemId();
 
         if (id == R.id.storyEditor) {
@@ -94,13 +92,6 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
-    private void switchToStoryEditor() {
-        switchToFragment(new EditorFragment());
-    }
-
-    private void switchToStoryPlayer() {
-        switchToFragment(new PlayerFragment());
-    }
 
     private void switchToFragment(final Fragment fragment) {
         Log.d(TAG, "Switch to new Fragment : " + fragment + " TAG:" + fragment.getClass().getSimpleName());
@@ -139,5 +130,24 @@ public class MainActivity extends AppCompatActivity
             DataManager.getInstance().storeStoryOnDevice();
         }
     }
+
+
+    private void switchToStoryEditor() {
+        switchToFragment(new EditorFragment());
+    }
+
+    private void switchToStoryPlayer() {
+        switchToFragment(new PlayerInitFragment());
+    }
+
+    private void switchToStoryChatPlayer() {
+        switchToFragment(new PlayerChatFragment());
+    }
+
+    @Override
+    public void openChatPlayer() {
+        switchToStoryChatPlayer();
+    }
+
 
 }
