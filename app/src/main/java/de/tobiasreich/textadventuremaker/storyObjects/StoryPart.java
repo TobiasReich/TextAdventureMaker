@@ -15,15 +15,24 @@ public class StoryPart {
 
     public static final String START_PART_NAME = "START";
 
-    String partName = "";
-    List<StoryMessage> texts = new ArrayList<>();
-    List<Decision> decisions = new ArrayList<>();
-    boolean saveGame = false;
+    private String partName = "";
+    private List<StoryMessage> texts = new ArrayList<>();
+    public List<UserAction> userActions = new ArrayList<>();
+    private boolean saveGame = false;
 
     public StoryPart(String name) {
         this.partName = name;
         texts.add(new StoryMessage());
         texts.add(new StoryMessage());
         texts.add(new StoryMessage());
+
+        // TODO: Test, add some cyclic paths for testing
+        userActions.add(new UserAction("Answer 1", 1, "Answer 2"));
+        userActions.add(new UserAction("Answer 2", 3, "Answer 3"));
+        userActions.add(new UserAction("Answer 3", 6, "Answer 1"));
+    }
+
+    public String getPartName() {
+        return partName;
     }
 }

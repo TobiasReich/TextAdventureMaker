@@ -35,14 +35,9 @@ public class Story {
         statusNumbers = new ArrayList<>();
         storyParts = new HashMap<>();
 
-        StoryPart startPart = new StoryPart();
-        startPart.partName = StoryPart.START_PART_NAME;
-
-        StoryPart part1 = new StoryPart();
-        part1.partName = "Part1";
-
-        StoryPart part2 = new StoryPart();
-        part2.partName = "Part2";
+        StoryPart startPart = new StoryPart(StoryPart.START_PART_NAME);
+        StoryPart part1 = new StoryPart("Part1");
+        StoryPart part2 = new StoryPart("Part2");
 
         addStoryPart(startPart);
         addStoryPart(part1);
@@ -58,7 +53,7 @@ public class Story {
     }
 
     public void addStoryPart(StoryPart part){
-        storyParts.put(part.partName, part);
+        storyParts.put(part.getPartName(), part);
     }
 
     public GameSettings getGameSettings() {
@@ -73,6 +68,14 @@ public class Story {
 
     public HashMap<String, StoryPart> getStoryParts() {
         return storyParts;
+    }
+
+    /** Gets the story part with the given name
+     *
+     * @param partName String the name of the part to get
+     * @return StoryPart with the given name (title) */
+    public StoryPart getStoryPart(String partName) {
+        return storyParts.get(partName);
     }
 
     public void setGameSettings(GameSettings gameSettings) {

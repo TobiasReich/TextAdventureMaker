@@ -11,7 +11,8 @@
         android:id="@+id/messagesRV"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        android:background="@android:color/white">
 
     </android.support.v7.widget.RecyclerView>
 
@@ -20,17 +21,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/AdventureMaker_Medium_Width"
+        android:background="@color/colorPrimaryDark"
         android:gravity="bottom"
         android:orientation="horizontal">
 
         <LinearLayout
+            android:id="@+id/message2TV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/textView5"
+                android:id="@+id/message1TV"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/AdventureMaker_Medium_Width"
@@ -38,7 +41,7 @@
                 android:text="TextView" />
 
             <TextView
-                android:id="@+id/textView4"
+                android:id="@+id/message2TV"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/AdventureMaker_Medium_Width"
@@ -46,20 +49,13 @@
                 android:text="TextView" />
 
             <TextView
-                android:id="@+id/textView3"
+                android:id="@+id/message3TV"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/AdventureMaker_Medium_Width"
                 android:background="@drawable/speech_bubble"
                 android:text="TextView" />
         </LinearLayout>
-
-        <ImageButton
-            android:id="@+id/startGameButton"
-            android:layout_width="@dimen/AdventureMaker_Huge_IconSize"
-            android:layout_height="@dimen/AdventureMaker_Huge_IconSize"
-            android:background="@android:color/white"
-            app:srcCompat="@drawable/ic_menu_send" />
 
     </LinearLayout>
 
