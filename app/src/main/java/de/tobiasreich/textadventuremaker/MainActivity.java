@@ -19,6 +19,7 @@ import de.tobiasreich.textadventuremaker.data.DataManager;
 import de.tobiasreich.textadventuremaker.editor.editor.EditorFragment;
 import de.tobiasreich.textadventuremaker.player.chatGameType.PlayerChatFragment;
 import de.tobiasreich.textadventuremaker.player.PlayerInitFragment;
+import de.tobiasreich.textadventuremaker.storyObjects.StoryPart;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener,
@@ -141,7 +142,7 @@ public class MainActivity extends AppCompatActivity
     }
 
     private void switchToStoryChatPlayer() {
-        switchToFragment(new PlayerChatFragment());
+        switchToFragment(PlayerChatFragment.newInstance("Story Name", StoryPart.START_PART_NAME));
     }
 
     @Override

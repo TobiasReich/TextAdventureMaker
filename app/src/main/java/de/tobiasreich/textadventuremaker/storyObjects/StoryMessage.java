@@ -20,9 +20,13 @@ package de.tobiasreich.textadventuremaker.storyObjects;
 public class StoryMessage {
 
     public String text = "story message text";
-    public int waitTime = 1;
+    public int waitTime = 1000;
     public int statusNumber = 0;
     public String imagePath;
     public boolean fromUser;   // Determines whether this message is from the user or from the "chat partner"
 
+    public StoryMessage(String text, int waitTime) {
+        this.text = text;
+        this.waitTime = waitTime;
+    }
 }

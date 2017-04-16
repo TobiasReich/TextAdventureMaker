@@ -7,32 +7,40 @@ import java.util.List;
  * Part of a story.
  *
  * This includes
- * - The story texts that are presented to the user
+ * - The story storyMessages that are presented to the user
  * - A list of possible decisions (answers) the player may make.
  *
  * Created by T on 12.04.2017. */
 public class StoryPart {
 
-    public static final String START_PART_NAME = "START";
+    public static final String START_PART_NAME = "START_PART";
 
     private String partName = "";
-    private List<StoryMessage> texts = new ArrayList<>();
+    private List<StoryMessage> storyMessages = new ArrayList<>();
     public List<UserAction> userActions = new ArrayList<>();
     private boolean saveGame = false;
 
     public StoryPart(String name) {
         this.partName = name;
-        texts.add(new StoryMessage());
-        texts.add(new StoryMessage());
-        texts.add(new StoryMessage());
+        storyMessages.add(new StoryMessage("Message 1", 1000));
+        storyMessages.add(new StoryMessage("Message 2", 3000));
+        storyMessages.add(new StoryMessage("Message 3", 5000));
 
         // TODO: Test, add some cyclic paths for testing
-        userActions.add(new UserAction("Answer 1", 1, "Answer 2"));
-        userActions.add(new UserAction("Answer 2", 3, "Answer 3"));
-        userActions.add(new UserAction("Answer 3", 6, "Answer 1"));
+        userActions.add(new UserAction("Action 1", 1, "Part1"));
+        userActions.add(new UserAction("Action 2", 3, "Part2"));
+        userActions.add(new UserAction("Action 3", 6, "Part3"));
     }
 
     public String getPartName() {
         return partName;
+    }
+
+    /** Gets the story messages
+     *
+     * @return List of StoryMessages
+     */
+    public List<StoryMessage> getStoryMessages(){
+        return storyMessages;
     }
 }

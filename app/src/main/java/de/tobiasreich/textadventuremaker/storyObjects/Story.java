@@ -38,10 +38,12 @@ public class Story {
         StoryPart startPart = new StoryPart(StoryPart.START_PART_NAME);
         StoryPart part1 = new StoryPart("Part1");
         StoryPart part2 = new StoryPart("Part2");
+        StoryPart part3 = new StoryPart("Part3");
 
         addStoryPart(startPart);
         addStoryPart(part1);
         addStoryPart(part2);
+        addStoryPart(part3);
     }
 
     public void setStoryName(String storyName) {
