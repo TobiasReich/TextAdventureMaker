@@ -135,20 +135,25 @@ public class PlayerChatFragment extends Fragment {
         sendMessagesLL = (LinearLayout) rootView.findViewById(R.id.sendMessagesLL);
 
         message1TV = (TextView) rootView.findViewById(R.id.message1TV);
+        message2TV = (TextView) rootView.findViewById(R.id.message2TV);
+        message3TV = (TextView) rootView.findViewById(R.id.message3TV);
+
+        setActionViews();
+
         message1TV.setOnClickListener(v -> {
             Log.d(TAG, "Clicked at Message 1");
             UserAction action = currentPart.userActions.get(0);
             Log.d(TAG, "Clicked at Action: " + action.message);
             executeActionAndContinue(action);
         });
-        message2TV = (TextView) rootView.findViewById(R.id.message2TV);
+
         message2TV.setOnClickListener(v -> {
             Log.d(TAG, "Clicked at Message 2");
             UserAction action = currentPart.userActions.get(1);
             Log.d(TAG, "Clicked at Action: " + action.message);
             executeActionAndContinue(action);
         });
-        message3TV = (TextView) rootView.findViewById(R.id.message3TV);
+
         message3TV.setOnClickListener(v -> {
             Log.d(TAG, "Clicked at Message 3");
             UserAction action = currentPart.userActions.get(2);
@@ -167,8 +172,7 @@ public class PlayerChatFragment extends Fragment {
     /**
      * Progresses the story to the next part
      *
-     * @param partName String the name of the next part
-     */
+     * @param partName String the name of the next part */
     public void gotoNextPart(String partName) {
         StoryPart nextPart = story.getStoryPart(partName);
         if (nextPart == null) {
@@ -177,6 +181,28 @@ public class PlayerChatFragment extends Fragment {
         }
         Log.d(TAG, "Adding new Part");
         messageRunnable.addPartToQueue(nextPart);
+        setActionViews();
     }
 
+    private void setActionViews() {
+        if (currentPart == null){
+            return;
+        }
+
+        int size = currentPart.userActions.size();
+
+        if (size == 1){
+            message1TV.setVisibility(View.VISIBLE);
+            message2TV.setVisibility(View.GONE);
+            message3TV.setVisibility(View.GONE);
+        } else if (size == 2){
+            message1TV.setVisibility(View.VISIBLE);
+            message2TV.setVisibility(View.VISIBLE);
+            message3TV.setVisibility(View.GONE);
+        } else {
+            message1TV.setVisibility(View.VISIBLE);
+            message2TV.setVisibility(View.VISIBLE);
+            message3TV.setVisibility(View.VISIBLE);
+        }
+    }
 }
